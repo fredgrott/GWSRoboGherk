@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Mar 16, 2013 7:59:33 AM                                                        
+
+     GWSRoboGherk    
+     gherk using robotium
+                   
+     fredgrott                                                                
+     ====================================================================== -->
+<project name="GWSRoboGherk" default="default">
+    <description>
+            gherk using robotium
+    </description>
+	
+	<property file="local.properties"/>
+	
+	<path id="lib.classpath">
+	  <fileset dir="libs" >
+    <include name="robotium-solo-4.0.jar"/>
+    
+</fileset>
+
+	</path>
+	<path id="our.bootpath">
+	       <fileset dir="${sdk.dir}/platforms/android-17">
+		    <include name="android.jar"/>
+		</fileset>
+	</path>
+	
+	
+	
+	
+	
+
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="depends" description="gherk using robotium">
+        
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="depends">
+    	<javac srcdir="${basedir}/src"
+    	             destdir="${basedir}/bin/classes"
+    	             fork="true"
+    	        classpathref="lib.claspath"
+    	        bootclasspathref="our.bootpath"
+    	             source="1.6"
+    	             target="1.6"
+    	      />
+    	    
+    	    <jar destfile="dist/gwsrobogherk-1.0.jar" basedir="bin/classes"></jar>
+    </target>
+
+</project>
